@@ -27,7 +27,11 @@
         "extensions": [
           ".hps"
         ],
-        "configuration": "./syntax/hps.configuration.json"
+        "configuration": "./syntax/hps.configuration.json",
+        "icon": {
+          "light": "./icons/hps.png",
+          "dark": "./icons/hps.png"
+        }
       }
     ],
     "grammars": [
@@ -42,7 +46,7 @@
     "type": "git",
     "url": "https://github.com/HactarCE/vscode-hps.git"
   },
-  "icon": "images/icon.png",
+  "icon": "icons/hps.png",
   "devDependencies": {
     "js-yaml": "^4.1.0"
   }
