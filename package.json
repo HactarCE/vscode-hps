@@ -1,0 +1,49 @@
+{
+  "name": "hyperpuzzlescript",
+  "version": "0.0.1",
+  "publisher": "HactarCE",
+  "engines": {
+    "vscode": "^1.28.0"
+  },
+  "license": "MIT OR Apache-2.0",
+  "displayName": "Hyperpuzzlescript Language Support",
+  "description": "Syntax highlighting for Hyperpuzzlescript, the DSL for Hyperspeedcube puzzle definitions",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "hyperpuzzlescript",
+    "hyperspeedcube",
+    "hsc",
+    "puzzle"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "hps",
+        "aliases": [
+          "hyperpuzzlescript"
+        ],
+        "extensions": [
+          ".hps"
+        ],
+        "configuration": "./syntax/hps.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "hps",
+        "scopeName": "source.hps",
+        "path": "./syntax/hps.tmLanguage.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HactarCE/vscode-hps.git"
+  },
+  "icon": "images/icon.png",
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
