@@ -1,12 +1,3 @@
 # Hyperpuzzlescript Language Support
 
-Syntax highlighting extension for VSCode support Hyperspeedcube puzzle definitions.
-
-## Compiling YAML language to JS
-
-```bash
-npx js-yaml syntax/h
-ps.tmLanguage.yaml > s
-yntax/hps.tmLanguage.j
-son
-```
+This extension adds syntax highlighting support for Hyperpuzzlescript, the domain-specific programming language for twisty puzzle definitions used by [Hyperspeedcube](https://ajfarkas.dev/projects/hyperspeedcube/).

@@ -7,7 +7,7 @@
   },
   "license": "MIT",
   "displayName": "Hyperpuzzlescript Language Support",
-  "description": "Syntax highlighting for Hyperpuzzlescript, the DSL for Hyperspeedcube puzzle definitions",
+  "description": "Twisty puzzle definition syntax highlighting",
   "categories": [
     "Programming Languages"
   ],
