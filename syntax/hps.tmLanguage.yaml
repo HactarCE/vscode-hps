@@ -294,10 +294,16 @@ repository:
 
   types:
     patterns:
-      - name: entity.name.type.primitive.hps
-        match: \b(Null|List|Map|Bool|Num|Str|Fn)\b
       - name: entity.name.type.unknown.hps
         match: \bAny\b
+      - name: entity.name.type.primitive.hps
+        match: \b(Null|Bool|Num|Str|List|Map|Fn|Vector)\b
+      - name: support.type.hps
+        match: \b(Point|Transform|Plane|Region)\b
+      - name: support.type.hps
+        match: \b(Blade1|Blade2|Blade3|Antiscalar|Region)\b
+      - name: support.type.hps
+        match: \b(Color|Axis|Twist|AxisSystem|TwistSystem|Puzzle)\b
 
   keywords:
     patterns:
