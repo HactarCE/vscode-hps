@@ -396,3 +396,5 @@ repository:
     patterns:
       - name: meta.delimiter.comma.hps
         match: ","
+      - name: invalid.illegal.delimiter.hps
+        match: ";"
