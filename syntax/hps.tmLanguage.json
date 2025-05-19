@@ -113,8 +113,7 @@
           }
         },
         {
-          "name": "variable.language.self.hps",
-          "match": "\\bself\\b"
+          "include": "#keywords"
         },
         {
           "name": "variable.parameter.function.hps",
@@ -573,6 +572,10 @@
           "match": "\\b(fn)\\b"
         },
         {
+          "name": "storage.modifier.mut.hps",
+          "match": "\\b(mut)\\b"
+        },
+        {
           "name": "keyword.control.flow.hps",
           "match": "\\b(return)\\b"
         },
@@ -586,7 +589,7 @@
         },
         {
           "name": "variable.language.self.hps",
-          "match": "\\bself\\b"
+          "match": "\\b(self)\\b"
         },
         {
           "name": "keyword.control.import.hps",

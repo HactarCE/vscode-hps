@@ -75,8 +75,7 @@ repository:
           "0":
             patterns:
               - include: "#types"
-      - name: variable.language.self.hps
-        match: \bself\b
+      - include: "#keywords"
       - name: variable.parameter.function.hps
         match: "[A-Za-z_][0-9A-Za-z_]*"
       - name: punctuation.separator.parameter.function.hps
@@ -309,6 +308,8 @@ repository:
     patterns:
       - name: storage.type.hps
         match: \b(fn)\b
+      - name: storage.modifier.mut.hps
+        match: \b(mut)\b
       - name: keyword.control.flow.hps
         match: \b(return)\b
       - name: keyword.control.conditional.hps
@@ -316,7 +317,7 @@ repository:
       - name: keyword.control.loop.hps
         match: \b(for|in|do|while|break|continue)\b
       - name: variable.language.self.hps
-        match: \bself\b
+        match: \b(self)\b
       - name: keyword.control.import.hps
         match: \b(use|import|from|as)\b
       - name: keyword.other.visibility.hps
