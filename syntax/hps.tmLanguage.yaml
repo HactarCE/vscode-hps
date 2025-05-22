@@ -323,7 +323,7 @@ repository:
       - name: keyword.other.visibility.hps
         match: \b(export)\b
       - name: keyword.numeric.hps
-        match: \b(inf|nan)\b
+        match: \b(inf)\b
       - name: keyword.operator.logical.hps
         match: \b(and|or|xor|not|is)\b
   operators:

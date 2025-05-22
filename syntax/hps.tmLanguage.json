@@ -601,7 +601,7 @@
         },
         {
           "name": "keyword.numeric.hps",
-          "match": "\\b(inf|nan)\\b"
+          "match": "\\b(inf)\\b"
         },
         {
           "name": "keyword.operator.logical.hps",
