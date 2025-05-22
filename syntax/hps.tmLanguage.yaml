@@ -134,7 +134,7 @@ repository:
   fn-statements:
     patterns:
       - name: meta.function.hps
-        begin: (fn)\s*([^\(]*)(\([^\)]*\))\s*(->\s*[^{]*)?\{
+        begin: (fn)\s*([^\(]*)(\([^\)]*\))\s*(->\s*[^{]*)?
         beginCaptures:
           "1":
             name: storage.type.function.hps
@@ -154,7 +154,7 @@ repository:
   fn-expr:
     patterns:
       - name: meta.function.hps
-        begin: (fn)\s*(\([^\)]*\))\s*(->\s*[^{]*)?\{
+        begin: (fn)\s*(\([^\)]*\))\s*(->\s*[^{]*)?
         beginCaptures:
           "1":
             name: storage.type.function.hps

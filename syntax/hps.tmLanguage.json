@@ -245,7 +245,7 @@
       "patterns": [
         {
           "name": "meta.function.hps",
-          "begin": "(fn)\\s*([^\\(]*)(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{",
+          "begin": "(fn)\\s*([^\\(]*)(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?",
           "beginCaptures": {
             "1": {
               "name": "storage.type.function.hps"
@@ -286,7 +286,7 @@
       "patterns": [
         {
           "name": "meta.function.hps",
-          "begin": "(fn)\\s*(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{",
+          "begin": "(fn)\\s*(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?",
           "beginCaptures": {
             "1": {
               "name": "storage.type.function.hps"
