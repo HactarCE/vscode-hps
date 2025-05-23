@@ -77,7 +77,11 @@
       "patterns": [
         {
           "name": "variable.language.self.hps",
-          "match": "\\bself\\b"
+          "match": "\\b(self)\\b"
+        },
+        {
+          "name": "support.constant.math",
+          "match": "\\b(pi|tau|phi)\\b"
         },
         {
           "name": "variable.other.readwrite.hps",
@@ -128,7 +132,20 @@
     "statements": {
       "patterns": [
         {
+          "match": "meow",
+          "name": "invalid.illegal.meow"
+        },
+        {
           "include": "#fn-statements"
+        },
+        {
+          "include": "#use-statements"
+        },
+        {
+          "include": "#import-statements"
+        },
+        {
+          "include": "#export-statements"
         },
         {
           "include": "#expressions"
@@ -145,9 +162,6 @@
         },
         {
           "include": "#fn-expr"
-        },
-        {
-          "include": "#var-expr"
         },
         {
           "include": "#block-expr"
@@ -169,19 +183,56 @@
         }
       ]
     },
-    "var-expr": {
+    "use-statements": {
       "patterns": [
         {
-          "name": "meta.var.expr.hps",
-          "begin": "(let)\\s*([A-Za-z_][0-9A-Za-z_]*)\\s*(\\:\\s*[^=]*)?\\s*(=)?\\s*",
-          "beginCaptures": {
+          "name": "meta.use.hps",
+          "match": "(use)((?:[^\\n]|\\([^)]*\\))*)",
+          "captures": {
             "1": {
+              "name": "storage.type.use.hps"
+            },
+            "2": {
               "patterns": [
                 {
-                  "name": "storage.type.hps",
-                  "match": "\\blet\\b"
+                  "name": "storage.type.use.hps",
+                  "match": "\\b(from|as)\\b"
                 }
               ]
+            }
+          }
+        }
+      ]
+    },
+    "import-statements": {
+      "patterns": [
+        {
+          "name": "meta.import.hps",
+          "match": "(import)((?:[^\\n]|\\([^)]*\\))*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.import.hps"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "name": "keyword.control.import.hps",
+                  "match": "\\b(from|as)\\b"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "export-statements": {
+      "patterns": [
+        {
+          "name": "meta.export.hps",
+          "match": "(export)\\s+([^\\s]+)(?:\\n|\\s*([^0-9A-Za-z\\s]+))",
+          "captures": {
+            "1": {
+              "name": "keyword.control.flow.export.hps"
             },
             "2": {
               "patterns": [
@@ -193,51 +244,33 @@
             "3": {
               "patterns": [
                 {
-                  "include": "#types"
+                  "name": "keyword.operator.assignment.hps",
+                  "match": "(?x)  =(?![=>])"
+                },
+                {
+                  "name": "invalid.illegal.assignment.augmented.hps",
+                  "match": "(?x)  \\*\\*=\n  | <<=\n  | >>=\n  | \\?\\?=\n  | \\+=\n  | -=\n  | (?<!\\*)\\*=\n  | /=\n  | %=\n  | &=\n  | \\|=\n  | \\^="
                 }
               ]
             }
-          },
-          "end": "(?=;)|(?=\\})",
-          "patterns": [
-            {
-              "include": "#expressions"
-            }
-          ]
+          }
         },
         {
-          "name": "meta.var.expr.hps",
-          "begin": "(const)\\s*([A-Za-z_][0-9A-Za-z_]*)\\s*(:\\s*.*)?(=)\\s*",
-          "beginCaptures": {
+          "name": "meta.export.hps",
+          "match": "(export)((?:[^\\n]|\\([^)]*\\))*)",
+          "captures": {
             "1": {
-              "patterns": [
-                {
-                  "name": "storage.type.hps",
-                  "match": "\\bconst\\b"
-                }
-              ]
+              "name": "keyword.control.flow.export.hps"
             },
             "2": {
               "patterns": [
                 {
-                  "include": "#const-ident"
-                }
-              ]
-            },
-            "3": {
-              "patterns": [
-                {
-                  "include": "#types"
+                  "name": "keyword.control.flow.export.hps",
+                  "match": "\\b(from|as)\\b"
                 }
               ]
             }
-          },
-          "end": "(?=;)|(?=\\})",
-          "patterns": [
-            {
-              "include": "#expressions"
-            }
-          ]
+          }
         }
       ]
     },
@@ -245,12 +278,15 @@
       "patterns": [
         {
           "name": "meta.function.hps",
-          "begin": "(fn)\\s*([^\\(]*)(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?",
+          "begin": "(?:(export)\\s+)?(fn)\\s*([^\\(]*)(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?",
           "beginCaptures": {
             "1": {
-              "name": "storage.type.function.hps"
+              "name": "keyword.control.flow.export.hps"
             },
             "2": {
+              "name": "storage.type.function.hps"
+            },
+            "3": {
               "patterns": [
                 {
                   "name": "entity.name.function.hps",
@@ -258,14 +294,14 @@
                 }
               ]
             },
-            "3": {
+            "4": {
               "patterns": [
                 {
                   "include": "#parameter-list"
                 }
               ]
             },
-            "4": {
+            "5": {
               "patterns": [
                 {
                   "include": "#types"
@@ -286,7 +322,7 @@
       "patterns": [
         {
           "name": "meta.function.hps",
-          "begin": "(fn)\\s*(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?",
+          "begin": "(fn)\\s*(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?",
           "beginCaptures": {
             "1": {
               "name": "storage.type.function.hps"
@@ -569,11 +605,7 @@
       "patterns": [
         {
           "name": "storage.type.hps",
-          "match": "\\b(fn)\\b"
-        },
-        {
-          "name": "storage.modifier.mut.hps",
-          "match": "\\b(mut)\\b"
+          "match": "\\b(fn|use)\\b"
         },
         {
           "name": "keyword.control.flow.hps",
@@ -593,11 +625,11 @@
         },
         {
           "name": "keyword.control.import.hps",
-          "match": "\\b(use|import|from|as)\\b"
+          "match": "\\b(import)\\b"
         },
         {
-          "name": "keyword.other.visibility.hps",
-          "match": "\\b(export)\\b"
+          "name": "keyword.control.flow.hps",
+          "match": "\\b(use)\\b"
         },
         {
           "name": "keyword.numeric.hps",
@@ -606,6 +638,10 @@
         {
           "name": "keyword.operator.logical.hps",
           "match": "\\b(and|or|xor|not|is)\\b"
+        },
+        {
+          "name": "invalid.illegal.operator.hps",
+          "match": "\\b(from|as)\\b"
         }
       ]
     },
