@@ -292,17 +292,21 @@ repository:
       - include: "#map-field"
   map-field:
     name: meta.map.field.hps
-    begin: "([^:]+)(:)"
+    begin: "([^:=]+)([:=])"
     beginCaptures:
       "1":
         name: meta.map-literal.key.hps
         patterns:
           - include: "#comments"
-          - name: invalid.illegal.operator.hps
-            match: =
           - include: "#ident"
           - include: "#literal-string"
-    end: (?=\})|(?=,)
+      "2":
+        patterns:
+          - name: invalid.illegal.operator.hps
+            match: =
+          - name: keyword.operator.key-value.hps
+            match: ":"
+    end: (?=[,}])
     patterns:
       - include: "#expressions"
   literal-list:

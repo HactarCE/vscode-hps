@@ -549,7 +549,7 @@
     },
     "map-field": {
       "name": "meta.map.field.hps",
-      "begin": "([^:]+)(:)",
+      "begin": "([^:=]+)([:=])",
       "beginCaptures": {
         "1": {
           "name": "meta.map-literal.key.hps",
@@ -558,19 +558,27 @@
               "include": "#comments"
             },
             {
-              "name": "invalid.illegal.operator.hps",
-              "match": "="
-            },
-            {
               "include": "#ident"
             },
             {
               "include": "#literal-string"
             }
           ]
+        },
+        "2": {
+          "patterns": [
+            {
+              "name": "invalid.illegal.operator.hps",
+              "match": "="
+            },
+            {
+              "name": "keyword.operator.key-value.hps",
+              "match": ":"
+            }
+          ]
         }
       },
-      "end": "(?=\\})|(?=,)",
+      "end": "(?=[,}])",
       "patterns": [
         {
           "include": "#expressions"
