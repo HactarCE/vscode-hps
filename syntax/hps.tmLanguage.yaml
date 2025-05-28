@@ -301,9 +301,9 @@ repository:
       "2":
         patterns:
           - name: invalid.illegal.operator.hps
-            match: =
-          - name: keyword.operator.key-value.hps
             match: ":"
+          - name: keyword.operator.key-value.hps
+            match: =
     end: (?=[,}])
     patterns:
       - include: "#expressions"

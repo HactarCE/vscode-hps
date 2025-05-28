@@ -565,11 +565,11 @@
           "patterns": [
             {
               "name": "invalid.illegal.operator.hps",
-              "match": "="
+              "match": ":"
             },
             {
               "name": "keyword.operator.key-value.hps",
-              "match": ":"
+              "match": "="
             }
           ]
         }
