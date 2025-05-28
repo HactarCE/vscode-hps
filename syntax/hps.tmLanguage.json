@@ -81,7 +81,7 @@
         },
         {
           "name": "support.constant.math",
-          "match": "\\b(pi|tau|phi|deg|π|τ|φ)\\b"
+          "match": "\\b(pi|π|tau|τ|phi|φ|deg|inf|∞)\\b"
         },
         {
           "name": "invalid.illegal.reserved",
@@ -654,10 +654,6 @@
         {
           "name": "keyword.control.loop.hps",
           "match": "\\b(for|in|do|while|break|continue)\\b"
-        },
-        {
-          "name": "support.constant.math",
-          "match": "\\b(inf)\\b"
         },
         {
           "name": "keyword.operator.logical.hps",

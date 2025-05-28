@@ -44,7 +44,7 @@ repository:
       - name: variable.language.self.hps
         match: \b(self)\b
       - name: support.constant.math
-        match: \b(pi|tau|phi|deg|π|τ|φ)\b
+        match: \b(pi|π|tau|τ|phi|φ|deg|inf|∞)\b
       - name: invalid.illegal.reserved
         match: \b(null|true|false|if|else|do|while|for|in|continue|break|return|use|import|export|fn|mut|from|as|is|and|or|xor|not)\b
       - name: variable.other.readwrite.hps
@@ -348,8 +348,6 @@ repository:
         match: \b(if|else)\b
       - name: keyword.control.loop.hps
         match: \b(for|in|do|while|break|continue)\b
-      - name: support.constant.math
-        match: \b(inf)\b
       - name: keyword.operator.logical.hps
         match: \b(and|or|xor|not|is)\b
       - name: keyword.control.flow.hps
