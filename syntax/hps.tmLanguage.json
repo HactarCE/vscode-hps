@@ -80,12 +80,8 @@
           "match": "\\b(self)\\b"
         },
         {
-          "name": "variable.language.hps.hps",
-          "match": "\\b(hps)\\b"
-        },
-        {
           "name": "support.constant.math",
-          "match": "\\b(pi|tau|phi)\\b"
+          "match": "\\b(pi|tau|phi|deg|π|τ|φ)\\b"
         },
         {
           "name": "invalid.illegal.reserved",
@@ -709,7 +705,7 @@
         },
         {
           "name": "keyword.operator.arithmetic.hps",
-          "match": "(?x)  /\n  | %\n  | \\*\\*\n  | \\*(?!\\))\n  | \\+\\+\n  | \\+(?!\\+)\n  | -(?![>-])\n  | \\.\\|\n  | \\|\\."
+          "match": "(?x)  /\n  | %\n  | \\*\\*\n  | \\*(?!\\))\n  | \\+\\+\n  | \\+(?!\\+)\n  | -(?![>-])\n  | \\.\\|\n  | \\|\\.\n  | √"
         },
         {
           "name": "keyword.operator.range.hps",
