@@ -352,6 +352,8 @@ repository:
         match: \b(and|or|xor|not|is)\b
       - name: keyword.control.flow.hps
         match: \b(with)\b
+      - name: variable.language.hps
+        match: \b(ndim)\b
       - name: invalid.illegal.operator.hps
         match: \b(from|as)\b
   operators:
