@@ -6,10 +6,7 @@ fileTypes:
 uuid: cf6eb986-7d95-4181-9e06-9f93118c8937
 scopeName: source.hps
 patterns:
-  - include: "#comments"
   - include: "#statements"
-  - include: "#keywords"
-  - include: "#punctuation"
 repository:
   comments:
     patterns:
@@ -72,6 +69,7 @@ repository:
         match: \,
   statements:
     patterns:
+      - include: "#comments"
       - include: "#fn-declaration"
       - include: "#use-statement"
       - include: "#export-statement"
@@ -137,7 +135,7 @@ repository:
   fn-declaration:
     patterns:
       - name: meta.function.hps
-        begin: (?:\b(export)\b\s+)?\b(fn)\s*([^\(]*)(?:(\([^\)]*\))\s*(->\s*[^{]*)?\{?)?
+        begin: (?:\b(export)\b\s+)?\b(fn)\s+([^\(]*)(?:(\([^\)]*\))\s*(->\s*[^{]*)?\{?)?
         beginCaptures:
           "1":
             name: storage.modifier.visibility.export.hps
@@ -159,7 +157,7 @@ repository:
   fn-expr:
     patterns:
       - name: meta.function.hps
-        begin: \b(fn)\s*(?:(\([^\)]*\))\s*(->\s*[^{]*)?\{?)?
+        begin: \b(fn)\s+(?:(\([^\)]*\))\s*(->\s*[^{]*)?\{?)?
         beginCaptures:
           "1":
             name: storage.type.function.hps
@@ -328,7 +326,7 @@ repository:
       - name: entity.name.type.primitive.hps
         match: \b(Null|Bool|Num|Str|List|Map|Fn|Vec)\b # general
       - name: support.type.hps
-        match: \b(Point|Transform|Plane|Region)\b # eeuclid
+        match: \b(Point|Transform|Plane|Region)\b # euclid
       - name: support.type.hps
         match: \b(Blade1|Blade2|Blade3|Antiscalar)\b # cga2d
       - name: support.type.hps
@@ -353,7 +351,7 @@ repository:
       - name: keyword.control.flow.hps
         match: \b(with)\b
       - name: variable.language.hps
-        match: \b(ndim)\b
+        match: "#(ndim|sym)\\b"
       - name: invalid.illegal.operator.hps
         match: \b(from|as)\b
   operators:
@@ -423,7 +421,7 @@ repository:
       - name: punctuation.separator.switch.case.hps
         match: =>
       - name: invalid.illegal.operator.hps
-        match: (\(\*|\*\)|\+\+|--|\.\.\.+|~|#(?!{)|@|\?|\$(?!{)|->|<-|===|!==|\:=|\:\:<)
+        match: (\(\*|\*\)|\+\+|--|\.\.\.+|~|@|\?|\$(?!{)|->|<-|===|!==|\:=|\:\:<)
       - name: invalid.illegal.operator.hps
         match: ->
   punctuation:
@@ -432,3 +430,5 @@ repository:
         match: ","
       - name: invalid.illegal.delimiter.hps
         match: ";"
+      # - name: invalid.illegal.operator.hps
+      #   match: "#(?!{)"

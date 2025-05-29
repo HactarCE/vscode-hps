@@ -8,16 +8,7 @@
   "scopeName": "source.hps",
   "patterns": [
     {
-      "include": "#comments"
-    },
-    {
       "include": "#statements"
-    },
-    {
-      "include": "#keywords"
-    },
-    {
-      "include": "#punctuation"
     }
   ],
   "repository": {
@@ -135,6 +126,9 @@
     },
     "statements": {
       "patterns": [
+        {
+          "include": "#comments"
+        },
         {
           "include": "#fn-declaration"
         },
@@ -259,7 +253,7 @@
       "patterns": [
         {
           "name": "meta.function.hps",
-          "begin": "(?:\\b(export)\\b\\s+)?\\b(fn)\\s*([^\\(]*)(?:(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?)?",
+          "begin": "(?:\\b(export)\\b\\s+)?\\b(fn)\\s+([^\\(]*)(?:(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?)?",
           "beginCaptures": {
             "1": {
               "name": "storage.modifier.visibility.export.hps"
@@ -303,7 +297,7 @@
       "patterns": [
         {
           "name": "meta.function.hps",
-          "begin": "\\b(fn)\\s*(?:(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?)?",
+          "begin": "\\b(fn)\\s+(?:(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?)?",
           "beginCaptures": {
             "1": {
               "name": "storage.type.function.hps"
@@ -665,7 +659,7 @@
         },
         {
           "name": "variable.language.hps",
-          "match": "\\b(ndim)\\b"
+          "match": "#(ndim|sym)\\b"
         },
         {
           "name": "invalid.illegal.operator.hps",
@@ -721,7 +715,7 @@
         },
         {
           "name": "invalid.illegal.operator.hps",
-          "match": "(\\(\\*|\\*\\)|\\+\\+|--|\\.\\.\\.+|~|#(?!{)|@|\\?|\\$(?!{)|->|<-|===|!==|\\:=|\\:\\:<)"
+          "match": "(\\(\\*|\\*\\)|\\+\\+|--|\\.\\.\\.+|~|@|\\?|\\$(?!{)|->|<-|===|!==|\\:=|\\:\\:<)"
         },
         {
           "name": "invalid.illegal.operator.hps",
