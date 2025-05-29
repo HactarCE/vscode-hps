@@ -326,13 +326,13 @@ repository:
       - name: entity.name.type.unknown.hps
         match: \bAny\b
       - name: entity.name.type.primitive.hps
-        match: \b(Null|Bool|Num|Str|List|Map|Fn|Vector)\b
+        match: \b(Null|Bool|Num|Str|List|Map|Fn|Vec)\b # general
       - name: support.type.hps
-        match: \b(Point|Transform|Plane|Region)\b
+        match: \b(Point|Transform|Plane|Region)\b # eeuclid
       - name: support.type.hps
-        match: \b(Blade1|Blade2|Blade3|Antiscalar|Region)\b
+        match: \b(Blade1|Blade2|Blade3|Antiscalar)\b # cga2d
       - name: support.type.hps
-        match: \b(Color|Axis|Twist|AxisSystem|TwistSystem|Puzzle)\b
+        match: \b(Color|Axis|Twist|AxisSystem|TwistSystem|Puzzle)\b # puzzle
 
   keywords:
     patterns:

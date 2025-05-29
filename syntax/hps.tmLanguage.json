@@ -613,7 +613,7 @@
         },
         {
           "name": "entity.name.type.primitive.hps",
-          "match": "\\b(Null|Bool|Num|Str|List|Map|Fn|Vector)\\b"
+          "match": "\\b(Null|Bool|Num|Str|List|Map|Fn|Vec)\\b"
         },
         {
           "name": "support.type.hps",
@@ -621,7 +621,7 @@
         },
         {
           "name": "support.type.hps",
-          "match": "\\b(Blade1|Blade2|Blade3|Antiscalar|Region)\\b"
+          "match": "\\b(Blade1|Blade2|Blade3|Antiscalar)\\b"
         },
         {
           "name": "support.type.hps",
