@@ -84,62 +84,16 @@
         }
       ]
     },
-    "parameter-list": {
-      "begin": "\\(",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.parameters.begin.hps"
-        }
-      },
-      "end": "\\)",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.parameters.end.hps"
-        }
-      },
-      "patterns": [
-        {
-          "name": "meta.type.annotation.hps",
-          "match": "(:\\s_*[^,]*)",
-          "captures": {
-            "0": {
-              "patterns": [
-                {
-                  "include": "#types"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "include": "#keywords"
-        },
-        {
-          "name": "variable.parameter.function.hps",
-          "match": "[A-Za-z_][0-9A-Za-z_]*"
-        },
-        {
-          "name": "punctuation.separator.parameter.function.hps",
-          "match": "\\,"
-        }
-      ]
-    },
     "statements": {
       "patterns": [
         {
           "include": "#comments"
         },
         {
-          "include": "#fn-declaration"
-        },
-        {
           "include": "#use-statement"
         },
         {
           "include": "#export-statement"
-        },
-        {
-          "include": "#statement-block"
         },
         {
           "include": "#expressions"
@@ -152,16 +106,13 @@
           "include": "#comments"
         },
         {
-          "include": "#types"
-        },
-        {
           "include": "#keywords"
         },
         {
-          "include": "#fn-expr"
+          "include": "#fn-definition"
         },
         {
-          "include": "#block-expr"
+          "include": "#statement-block"
         },
         {
           "include": "#namespace-access"
@@ -249,11 +200,11 @@
         }
       ]
     },
-    "fn-declaration": {
+    "fn-definition": {
       "patterns": [
         {
           "name": "meta.function.hps",
-          "begin": "(?:\\b(export)\\b\\s+)?\\b(fn)\\s+([^\\(]*)(?:(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?)?",
+          "begin": "(?:\\b(export)\\b\\s+)?\\b(fn)\\b([^\\(]*)",
           "beginCaptures": {
             "1": {
               "name": "storage.modifier.visibility.export.hps"
@@ -266,53 +217,6 @@
                 {
                   "name": "entity.name.function.hps",
                   "match": "[A-Za-z_][0-9A-Za-z_]*"
-                }
-              ]
-            },
-            "4": {
-              "patterns": [
-                {
-                  "include": "#expressions"
-                }
-              ]
-            },
-            "5": {
-              "patterns": [
-                {
-                  "include": "#expressions"
-                }
-              ]
-            }
-          },
-          "end": "\\}",
-          "patterns": [
-            {
-              "include": "#statements"
-            }
-          ]
-        }
-      ]
-    },
-    "fn-expr": {
-      "patterns": [
-        {
-          "name": "meta.function.hps",
-          "begin": "\\b(fn)\\s+(?:(\\([^\\)]*\\))\\s*(->\\s*[^{]*)?\\{?)?",
-          "beginCaptures": {
-            "1": {
-              "name": "storage.type.function.hps"
-            },
-            "2": {
-              "patterns": [
-                {
-                  "include": "#expressions"
-                }
-              ]
-            },
-            "3": {
-              "patterns": [
-                {
-                  "include": "#expressions"
                 }
               ]
             }
@@ -343,26 +247,6 @@
       "patterns": [
         {
           "include": "#statements"
-        }
-      ]
-    },
-    "block-expr": {
-      "name": "meta.block.expression.hps",
-      "begin": "(?<!#)\\{",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.block.hps"
-        }
-      },
-      "end": "\\}",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.block.hps"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#expressions"
         }
       ]
     },
@@ -530,47 +414,6 @@
       },
       "patterns": [
         {
-          "include": "#comments"
-        },
-        {
-          "include": "#map-field"
-        }
-      ]
-    },
-    "map-field": {
-      "name": "meta.map.field.hps",
-      "begin": "([^:=]+)([:=])",
-      "beginCaptures": {
-        "1": {
-          "name": "meta.map-literal.key.hps",
-          "patterns": [
-            {
-              "include": "#comments"
-            },
-            {
-              "include": "#ident"
-            },
-            {
-              "include": "#literal-string"
-            }
-          ]
-        },
-        "2": {
-          "patterns": [
-            {
-              "name": "invalid.illegal.operator.hps",
-              "match": ":"
-            },
-            {
-              "name": "keyword.operator.key-value.hps",
-              "match": "="
-            }
-          ]
-        }
-      },
-      "end": "(?=[,}])",
-      "patterns": [
-        {
           "include": "#expressions"
         }
       ]
@@ -625,6 +468,9 @@
     },
     "keywords": {
       "patterns": [
+        {
+          "include": "#types"
+        },
         {
           "name": "storage.hps",
           "match": "\\b(fn)\\b"
@@ -714,12 +560,16 @@
           "match": "=>"
         },
         {
-          "name": "invalid.illegal.operator.hps",
-          "match": "(\\(\\*|\\*\\)|\\+\\+|--|\\.\\.\\.+|~|@|\\?|\\$(?!{)|->|<-|===|!==|\\:=|\\:\\:<)"
+          "name": "punctuation.operator.arrow.hps",
+          "match": "->"
         },
         {
           "name": "invalid.illegal.operator.hps",
-          "match": "->"
+          "match": "(\\(\\*|\\*\\)|\\+\\+|--|\\.\\.\\.+|~|@|\\?|\\$(?!{)|<-|===|!==|\\:=|\\:\\:<)"
+        },
+        {
+          "name": "punctuation.separator.colon.hps",
+          "match": ":"
         }
       ]
     },

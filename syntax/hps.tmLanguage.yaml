@@ -46,42 +46,18 @@ repository:
         match: \b(null|true|false|if|else|do|while|for|in|continue|break|return|use|import|export|fn|mut|from|as|is|and|or|xor|not)\b
       - name: variable.other.readwrite.hps
         match: "[A-Za-z_][0-9A-Za-z_]*"
-  parameter-list:
-    begin: \(
-    beginCaptures:
-      "0":
-        name: punctuation.definition.parameters.begin.hps
-    end: \)
-    endCaptures:
-      "0":
-        name: punctuation.definition.parameters.end.hps
-    patterns:
-      - name: meta.type.annotation.hps
-        match: (:\s_*[^,]*)
-        captures:
-          "0":
-            patterns:
-              - include: "#types"
-      - include: "#keywords"
-      - name: variable.parameter.function.hps
-        match: "[A-Za-z_][0-9A-Za-z_]*"
-      - name: punctuation.separator.parameter.function.hps
-        match: \,
   statements:
     patterns:
       - include: "#comments"
-      - include: "#fn-declaration"
       - include: "#use-statement"
       - include: "#export-statement"
-      - include: "#statement-block"
       - include: "#expressions"
   expressions:
     patterns:
       - include: "#comments"
-      - include: "#types"
       - include: "#keywords"
-      - include: "#fn-expr"
-      - include: "#block-expr"
+      - include: "#fn-definition"
+      - include: "#statement-block"
       - include: "#namespace-access"
       - include: "#fn-call-expr"
       - include: "#literals"
@@ -132,10 +108,10 @@ repository:
                 | \|=
                 | \^=
           - include: "#expressions"
-  fn-declaration:
+  fn-definition:
     patterns:
       - name: meta.function.hps
-        begin: (?:\b(export)\b\s+)?\b(fn)\s+([^\(]*)(?:(\([^\)]*\))\s*(->\s*[^{]*)?\{?)?
+        begin: (?:\b(export)\b\s+)?\b(fn)\b([^\(]*)
         beginCaptures:
           "1":
             name: storage.modifier.visibility.export.hps
@@ -145,28 +121,6 @@ repository:
             patterns:
               - name: entity.name.function.hps
                 match: "[A-Za-z_][0-9A-Za-z_]*"
-          "4":
-            patterns:
-              - include: "#expressions" # params
-          "5":
-            patterns:
-              - include: "#expressions" # return type
-        end: \}
-        patterns:
-          - include: "#statements"
-  fn-expr:
-    patterns:
-      - name: meta.function.hps
-        begin: \b(fn)\s+(?:(\([^\)]*\))\s*(->\s*[^{]*)?\{?)?
-        beginCaptures:
-          "1":
-            name: storage.type.function.hps
-          "2":
-            patterns:
-              - include: "#expressions" # params
-          "3":
-            patterns:
-              - include: "#expressions" # return type
         end: \}
         patterns:
           - include: "#statements"
@@ -182,18 +136,6 @@ repository:
         name: punctuation.definition.block.hps
     patterns:
       - include: "#statements"
-  block-expr:
-    name: meta.block.expression.hps
-    begin: (?<!#)\{
-    beginCaptures:
-      "0":
-        name: punctuation.definition.block.hps
-    end: \}
-    endCaptures:
-      "0":
-        name: punctuation.definition.block.hps
-    patterns:
-      - include: "#expressions"
   fn-call-expr:
     name: meta.function-call.hps
     begin: (?!for)([A-Za-z_][0-9A-Za-z_]*)\s*\(
@@ -284,26 +226,6 @@ repository:
     endCaptures:
       "0": { name: punctuation.definition.map.end.hps }
     patterns:
-      - include: "#comments"
-      - include: "#map-field"
-  map-field:
-    name: meta.map.field.hps
-    begin: "([^:=]+)([:=])"
-    beginCaptures:
-      "1":
-        name: meta.map-literal.key.hps
-        patterns:
-          - include: "#comments"
-          - include: "#ident"
-          - include: "#literal-string"
-      "2":
-        patterns:
-          - name: invalid.illegal.operator.hps
-            match: ":"
-          - name: keyword.operator.key-value.hps
-            match: =
-    end: (?=[,}])
-    patterns:
       - include: "#expressions"
   literal-list:
     name: meta.list-literal.hps
@@ -334,6 +256,7 @@ repository:
 
   keywords:
     patterns:
+      - include: "#types"
       - name: storage.hps
         match: \b(fn)\b
       - name: storage.modifier.visibility.export.hps
@@ -420,15 +343,15 @@ repository:
             \?\.
       - name: punctuation.separator.switch.case.hps
         match: =>
-      - name: invalid.illegal.operator.hps
-        match: (\(\*|\*\)|\+\+|--|\.\.\.+|~|@|\?|\$(?!{)|->|<-|===|!==|\:=|\:\:<)
-      - name: invalid.illegal.operator.hps
+      - name: punctuation.operator.arrow.hps
         match: ->
+      - name: invalid.illegal.operator.hps
+        match: (\(\*|\*\)|\+\+|--|\.\.\.+|~|@|\?|\$(?!{)|<-|===|!==|\:=|\:\:<)
+      - name: punctuation.separator.colon.hps
+        match: ":"
   punctuation:
     patterns:
       - name: meta.delimiter.comma.hps
         match: ","
       - name: invalid.illegal.delimiter.hps
         match: ";"
-      # - name: invalid.illegal.operator.hps
-      #   match: "#(?!{)"
