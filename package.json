@@ -40,6 +40,12 @@
         "scopeName": "source.hps",
         "path": "./syntax/hps.tmLanguage.json"
       }
+    ],
+    "snippets": [
+      {
+        "language": "hps",
+        "path": "snippets/hps.json"
+      }
     ]
   },
   "repository": {

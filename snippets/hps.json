@@ -1,0 +1,48 @@
+{
+  // Unicode symbols
+  "π (pi)": {
+    "prefix": "pi",
+    "body": ["π"]
+  },
+  "𝜏 (tau)": {
+    "prefix": "tau",
+    "body": ["𝜏"]
+  },
+  "φ (phi)": {
+    "prefix": "phi",
+    "body": ["φ"]
+  },
+  "√ (sqrt)": {
+    "prefix": "sqrt",
+    "body": ["√"]
+  },
+  // Common symmetries
+  "cd(\"a3\")": {
+    "prefix": "a3",
+    "body": ["cd(\"a3\")"]
+  },
+  "cd(\"a4\")": {
+    "prefix": "a4",
+    "body": ["cd(\"a4\")"]
+  },
+  "cd(\"bc3\")": {
+    "prefix": "bc3",
+    "body": ["cd(\"bc3\")"]
+  },
+  "cd(\"bc4\")": {
+    "prefix": "bc4",
+    "body": ["cd(\"bc4\")"]
+  },
+  "cd(\"bc5\")": {
+    "prefix": "bc5",
+    "body": ["cd(\"bc5\")"]
+  },
+  "cd(\"h3\")": {
+    "prefix": "h3",
+    "body": ["cd(\"h3\")"]
+  },
+  "cd(\"h4\")": {
+    "prefix": "h4",
+    "body": ["cd(\"h4\")"]
+  }
+}
