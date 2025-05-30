@@ -8,13 +8,21 @@
     "prefix": "tau",
     "body": ["𝜏"]
   },
-  "φ (phi)": {
+  "φ (phi, golden ratio)": {
     "prefix": "phi",
     "body": ["φ"]
   },
-  "√ (sqrt)": {
+  "√ (square root)": {
     "prefix": "sqrt",
     "body": ["√"]
+  },
+  "∞ (infinity)": {
+    "prefix": "inf",
+    "body": ["∞"]
+  },
+  "° (degrees)": {
+    "prefix": "deg",
+    "body": ["°"]
   },
   // Common symmetries
   "cd(\"a3\")": {
