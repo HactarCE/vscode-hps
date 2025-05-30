@@ -346,7 +346,7 @@ repository:
       - name: punctuation.operator.arrow.hps
         match: ->
       - name: invalid.illegal.operator.hps
-        match: (\(\*|\*\)|\+\+|--|\.\.\.+|~|@|\?|\$(?!{)|<-|===|!==|\:=|\:\:<)
+        match: (\.\.\.+|~|@|\?|\$(?!{)|<-|===|!==|\:=|\:\:<)
       - name: punctuation.separator.colon.hps
         match: ":"
   punctuation:
