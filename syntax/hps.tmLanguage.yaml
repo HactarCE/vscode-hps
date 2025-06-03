@@ -341,14 +341,16 @@ repository:
         match: |-
           (?x)  \.(?!\.) |
             \?\.
+      - name: keyword.operator.type.nullable.hps
+        match: \?
       - name: punctuation.separator.switch.case.hps
         match: =>
       - name: punctuation.operator.arrow.hps
         match: ->
-      - name: invalid.illegal.operator.hps
-        match: (\.\.\.+|~|@|\?|\$(?!{)|<-|===|!==|\:=|\:\:<)
       - name: punctuation.separator.colon.hps
         match: ":"
+      - name: invalid.illegal.operator.hps
+        match: (\.\.\.+|~|@|\$(?!{)|<-|===|!==|\:=|\:\:<)
   punctuation:
     patterns:
       - name: meta.delimiter.comma.hps

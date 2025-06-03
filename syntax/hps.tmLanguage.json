@@ -556,6 +556,10 @@
           "match": "(?x)  \\.(?!\\.) |\n  \\?\\."
         },
         {
+          "name": "keyword.operator.type.nullable.hps",
+          "match": "\\?"
+        },
+        {
           "name": "punctuation.separator.switch.case.hps",
           "match": "=>"
         },
@@ -564,12 +568,12 @@
           "match": "->"
         },
         {
-          "name": "invalid.illegal.operator.hps",
-          "match": "(\\.\\.\\.+|~|@|\\?|\\$(?!{)|<-|===|!==|\\:=|\\:\\:<)"
-        },
-        {
           "name": "punctuation.separator.colon.hps",
           "match": ":"
+        },
+        {
+          "name": "invalid.illegal.operator.hps",
+          "match": "(\\.\\.\\.+|~|@|\\$(?!{)|<-|===|!==|\\:=|\\:\\:<)"
         }
       ]
     },
