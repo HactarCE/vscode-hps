@@ -246,7 +246,7 @@ repository:
       - name: entity.name.type.unknown.hps
         match: \bAny\b
       - name: entity.name.type.primitive.hps
-        match: \b(Null|Bool|Num|Str|List|Map|Fn|Vec)\b # general
+        match: \b(Null|Bool|Num|Str|List|Map|Fn|Int|Nat|EmptyList|NonEmptyList|Vec|Type)\b # general
       - name: support.type.hps
         match: \b(Point|Transform|Plane|Region)\b # euclid
       - name: support.type.hps

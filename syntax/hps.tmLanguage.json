@@ -450,7 +450,7 @@
         },
         {
           "name": "entity.name.type.primitive.hps",
-          "match": "\\b(Null|Bool|Num|Str|List|Map|Fn|Vec)\\b"
+          "match": "\\b(Null|Bool|Num|Str|List|Map|Fn|Int|Nat|EmptyList|NonEmptyList|Vec|Type)\\b"
         },
         {
           "name": "support.type.hps",
