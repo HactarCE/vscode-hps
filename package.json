@@ -1,6 +1,6 @@
 {
   "name": "hyperpuzzlescript",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "publisher": "HactarCE",
   "engines": {
     "vscode": "^1.28.0"
