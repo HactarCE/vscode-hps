@@ -274,7 +274,7 @@ repository:
       - name: keyword.control.flow.hps
         match: \b(with)\b
       - name: variable.language.hps
-        match: "#(ndim|sym)\\b"
+        match: "#(ndim|sym|puz|twists|shape)\\b"
       - name: invalid.illegal.operator.hps
         match: \b(from|as)\b
   operators:
