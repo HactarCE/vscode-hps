@@ -1,9 +1,7 @@
 {
   "name": "Hyperpuzzlescript",
   "version": "v1.0.0",
-  "fileTypes": [
-    "hps"
-  ],
+  "fileTypes": ["hps"],
   "uuid": "cf6eb986-7d95-4181-9e06-9f93118c8937",
   "scopeName": "source.hps",
   "patterns": [
@@ -505,7 +503,7 @@
         },
         {
           "name": "variable.language.hps",
-          "match": "#(ndim|sym)\\b"
+          "match": "#(ndim|sym|puz|twists|shape)\\b"
         },
         {
           "name": "invalid.illegal.operator.hps",
