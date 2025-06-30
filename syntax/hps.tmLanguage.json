@@ -496,7 +496,7 @@
           "match": "\\b(for|in|do|while|break|continue)\\b"
         },
         {
-          "name": "keyword.operator.logical.hps",
+          "name": "keyword.logical.hps",
           "match": "\\b(and|or|xor|not|is)\\b"
         },
         {

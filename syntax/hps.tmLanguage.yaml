@@ -269,7 +269,7 @@ repository:
         match: \b(if|else)\b
       - name: keyword.control.loop.hps
         match: \b(for|in|do|while|break|continue)\b
-      - name: keyword.operator.logical.hps
+      - name: keyword.logical.hps # should be keyword.operator.logical.hps
         match: \b(and|or|xor|not|is)\b
       - name: keyword.control.flow.hps
         match: \b(with)\b
