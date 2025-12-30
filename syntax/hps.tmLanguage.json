@@ -505,7 +505,7 @@
         },
         {
           "name": "variable.language.hps",
-          "match": "#(ndim|sym|puz|twists|axes|shape)\\b"
+          "match": "#(ndim|sym|puz|twists|axes|shape|id)\\b"
         },
         {
           "name": "invalid.illegal.operator.hps",
