@@ -80,7 +80,7 @@
         },
         {
           "name": "variable.other.readwrite.hps",
-          "match": "[A-Za-z_][0-9A-Za-z_]*"
+          "match": "[A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*"
         }
       ]
     },
@@ -216,7 +216,7 @@
               "patterns": [
                 {
                   "name": "entity.name.function.hps",
-                  "match": "[A-Za-z_][0-9A-Za-z_]*"
+                  "match": "[A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*"
                 }
               ]
             }
@@ -252,14 +252,14 @@
     },
     "fn-call-expr": {
       "name": "meta.function-call.hps",
-      "begin": "(?!for)([A-Za-z_][0-9A-Za-z_]*)\\s*\\(",
+      "begin": "(?!for)([A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*)\\s*\\(",
       "end": "\\)",
       "beginCaptures": {
         "1": {
           "patterns": [
             {
               "name": "entity.name.function.hps",
-              "match": "[A-Za-z_][0-9A-Za-z_]*"
+              "match": "[A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*"
             }
           ]
         }

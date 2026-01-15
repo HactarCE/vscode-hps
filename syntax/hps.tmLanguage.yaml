@@ -45,7 +45,7 @@ repository:
       - name: invalid.illegal.reserved
         match: \b(null|true|false|if|else|do|while|for|in|continue|break|return|use|import|export|fn|mut|from|as|is|and|or|xor|not)\b
       - name: variable.other.readwrite.hps
-        match: "[A-Za-z_][0-9A-Za-z_]*"
+        match: "[A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*"
   statements:
     patterns:
       - include: "#comments"
@@ -120,7 +120,7 @@ repository:
           "3":
             patterns:
               - name: entity.name.function.hps
-                match: "[A-Za-z_][0-9A-Za-z_]*"
+                match: "[A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*"
         end: \}
         patterns:
           - include: "#statements"
@@ -138,13 +138,13 @@ repository:
       - include: "#statements"
   fn-call-expr:
     name: meta.function-call.hps
-    begin: (?!for)([A-Za-z_][0-9A-Za-z_]*)\s*\(
+    begin: (?!for)([A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*)\s*\(
     end: \)
     beginCaptures:
       "1":
         patterns:
           - name: entity.name.function.hps
-            match: "[A-Za-z_][0-9A-Za-z_]*"
+            match: "[A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ][0-9A-Za-z_βδζθλξεηκμπτφψωΓΔΘΛΞΠΣΦΨΩ]*"
     patterns:
       - include: "#expressions"
 
